@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Image, FlatList, useWindowDimensions, ScrollView, Pressable } from 'react-native';
 import products from '../data/products';
-import React from 'react'
+import React from 'react';
+import Button from "../components/Button";
 
 const ProductDetailsScreens = () => {
 
@@ -23,9 +24,7 @@ const ProductDetailsScreens = () => {
                 </View>
             </ScrollView>
 
-            <Pressable style={styles.button}>
-                <Text style={styles.buttonText}>Add To Cart</Text>
-            </Pressable>
+            <Button text="Add to cart" />
 
         </View>
     )
@@ -48,22 +47,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         lineHeight: 30,
     },
-    button:{
-        position: 'absolute',
-        backgroundColor: 'black',
-        bottom: 30,
-        width: '90%',
-        alignItems: 'center',
-        alignSelf: 'center',
-        padding: 20,
-        borderRadius: 100
-    },
-    buttonText:{
-        color: 'white',
-        fontWeight: '500',
-        fontSize: 16
-
-    }
+  
 });
 
 export default ProductDetailsScreens
