@@ -25,7 +25,7 @@ const ShoppingCart = () => {
 
     return (
         <>
-            <FlatList contentContainerStyle={{ marginTop: 40 }} data={cart} renderItem={({ item }) => <CartListItem cartItem={item} />}
+            <FlatList data={cart} renderItem={({ item }) => <CartListItem cartItem={item} />}
                 ListFooterComponent={ShoppingCartTotals}
             />
 
