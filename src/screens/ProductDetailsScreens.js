@@ -1,14 +1,19 @@
 import { View, Text, StyleSheet, Image, FlatList, useWindowDimensions, ScrollView, Pressable } from 'react-native';
-import products from '../data/products';
+
 import React from 'react';
 import Button from "../components/Button";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { cartSlice } from '../store/cartSlice';
 
 const ProductDetailsScreens = () => {
 
-    const product = products[0];
     const { width } = useWindowDimensions();
     const { selectedProduct } = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+
+    const addToCart = () => {
+        dispatch(cartSlice.actions.addCartItem({ product: selectedProduct }))
+    }
 
     return (
 
@@ -26,7 +31,11 @@ const ProductDetailsScreens = () => {
                 </View>
             </ScrollView>
 
-            <Button text="Add to cart" />
+
+
+            <Button handlePress={addToCart} text="Add to cart" />
+
+
 
         </View>
     )
@@ -49,7 +58,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         lineHeight: 30,
     },
-  
+
 });
 
 export default ProductDetailsScreens
